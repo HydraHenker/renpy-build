@@ -6,10 +6,11 @@ This GitHub action allows you to make distributable builds of a Ren'Py visual no
 
 ```yml
 - name: Build VN project
-  uses: ProjectAliceDev/renpy-build-action@master
+  uses: Siege-Wizard/renpy-build-action@master
   with:
-    sdk-version: '6.99.12.4'
-    project-dir: '.'
+    sdk-version: '7.4.5'
+    project-dir: 'src'
+    package: 'pc'
   env:
     SDL_AUDIODRIVER: dummy
     SDL_VIDEODRIVER: dummy
@@ -17,11 +18,12 @@ This GitHub action allows you to make distributable builds of a Ren'Py visual no
 
 **Required Parameters:**
 
-- `sdk-version`: The version of the Ren'Py SDK to use while building. Will default to `7.3.2` if none is found.
+- `sdk-version`: The version of the Ren'Py SDK to use while building.
+
+**Optional Parameters:**
 
 - `project-dir`: The directory where the project exists. Will default to `'.'` (root) if none is found.
-
-> :warning: If you are targeting Ren'Py v7.4.0+, you must use v1.1.2 of this action or greater.
+- `package`: The package identifier to build for. Will default to all packages.
 
 ### Outputs
 

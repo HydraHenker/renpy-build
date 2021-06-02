@@ -1,15 +1,18 @@
-name: "Build Ren'Py Project"
-author: 'Project Alice'
+name: "Build Ren'Py-based Visual Novel"
+author: 'SiegeWizard'
 description: "Build your VN project using a specified Ren'Py SDK version"
 inputs:
   sdk-version:
     description: "The version of the Ren'Py SDK to use"
     required: true
-    default: '7.3.2'
   project-dir:
     description: "The path to the directory where the project exists"
-    required: true
+    required: false
     default: '.'
+  package:
+    description: "The package identifier to build for, defaults to all packages"
+    required: false
+    default: ""
 outputs:
   dir:
     description: "The directory where the distributed files exist"
@@ -21,6 +24,7 @@ runs:
   args:
     - ${{ inputs.sdk-version }}
     - ${{ inputs.project-dir }}
+    - ${{ inputs.package }}
 branding:
   color: 'gray-dark'
-  icon: 'archive'
+  icon: 'book-open'
